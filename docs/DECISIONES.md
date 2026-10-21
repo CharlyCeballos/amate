@@ -66,6 +66,10 @@ Implica:
   y la web están libres. El usuario `amate` de GitHub está ocupado por una cuenta ajena activa;
   la org propuesta es `amate-editor` (a verificar). Hay nombres parecidos: los crates AmateRS
   (`amaters`, una base de datos cifrada) y Amate Audio (bocinas, no software).
+- Búsqueda de dominios del dueño (2026-10-20): solo aparecen `amateaudiousa.com`,
+  `amateaudio.com` y `amateaudionorway.no` (audio, otro sector) y `amatetecnologia.com` (empresa de
+  tecnología: revisar que no sea software de edición), más variantes parecidas. Ningún editor de
+  texto. Falta la consulta formal en IMPI, USPTO y EUIPO, y elegir un dominio libre.
 - Ningún nombre, binario, crate, paquete, repo, dominio, logo ni icono usa «Notepad++» o un
   derivado confundible ([Q21]).
 

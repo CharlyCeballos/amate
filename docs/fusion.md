@@ -77,4 +77,4 @@ equivocadas.
 | Fin de soporte de Windows 10; Debian 12 en LTS | a verificar |
 | Sintaxis que faltan en el juego de `syntect` para [Q26] | a verificar |
 | Niveles de licencia de Slint; accesibilidad y dependencias en C de cada toolkit | a verificar |
-| Marca y dominio de «Amate» (IMPI, USPTO, EUIPO) | a verificar |
+| Marca de «Amate» (IMPI, USPTO, EUIPO) y dominio libre; dominios existentes revisados el 2026-10-20 (Amate Audio, Amate Tecnología) | a verificar |
