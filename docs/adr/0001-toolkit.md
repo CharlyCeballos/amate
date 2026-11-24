@@ -78,9 +78,9 @@ ruido). Detalle y método en el `MEASUREMENTS.md` de cada rama.
 | Binario release / compilación limpia | 9.1 MB / 83 s | 16.7 MiB / 130 s |
 | Dependencias (Windows / Linux / macOS) | 137 / 242 / 147 | 259 / 352 / 262 |
 | `cargo deny check` (Q02, Q19) | ok | ok, agregando `GPL-3.0-only` |
-| Lector de pantalla (prueba automática de UIA) | Expone el texto; el rango del caret de UIA falla, igual que en el `TextEdit` de egui | Edit multilínea con texto; solo las ~38 líneas visibles; el rango del caret de UIA falla, igual que en `LineEdit` |
-| IME JA/ZH/KO (manual, 3 sistemas) | Pendiente | Pendiente |
-| NVDA / VoiceOver / Orca (manual) | Pendiente | Pendiente |
+| Lector de pantalla (prueba automática de UIA) | Expone el texto; el rango del caret falla con el cliente UIA de .NET, pero NVDA sí lee el caret (fila siguiente) | Edit multilínea con texto; solo las ~38 líneas visibles; el rango del caret de UIA falla, igual que en `LineEdit` |
+| IME JA/ZH/KO (manual, 3 sistemas) | Windows 11 (2026-11-23): japonés ok (preedit en línea, conversión, ventana de candidatos pegada al caret, commit exacto del candidato elegido); coreano ok (commit exacto `한글`); chino: preedit y barra de candidatos pegados al caret, commit sin verificar (lo interrumpió el aviso de Bing del IME). macOS y Linux pendientes | Pendiente |
+| NVDA / VoiceOver / Orca (manual) | NVDA 2026.3 (2026-11-23): foco «Editor: scripts.txt, edit» y la línea; ↑↓ leen la línea, ←→ el carácter, eco al escribir y al borrar; CJK y coreano bien. Fallan árabe y hebreo (duplicados, al revés y al derecho), la familia ZWJ, las banderas, y la etiqueta de la búsqueda (lee el placeholder). Al entrar con Alt+Tab real anuncia la ventana y el editor, y ↓ lee el archivo (verificado por el mantenedor). VoiceOver y Orca pendientes | Pendiente |
 | Texto: respaldo, ligaduras, CJK, emoji, bidi | Fuentes del sistema y ligaduras ok; bidi, emoji compuestos y anchos CJK fallan en caret y en el texto para AccessKit | Dibuja CJK, emoji y RTL; sin API para medir glifos, el caret falla después de CJK y RTL |
 | Binario universal de macOS | CI de `master` | — |
 
