@@ -1,0 +1,18 @@
+Amate spike: text rendering sample (open with amate-spike, compare against the manual checklist)
+ASCII and code: fn main() -> Result<(), Error> { a != b && c >= d || e <= f; x => y; i++ ; /* */ // }
+Ligatures (need --font CascadiaCode.ttf or FiraCode): -> => != === !== <= >= :: |> <| www ** ++ ... //
+Latin accents: ñandú, café, Ærøskøbing, Đặng Thị Huyền
+Japanese: 日本語のテキストを表示します。カタカナ ひらがな
+Chinese (Simplified): 简体中文文本，测试字体回退。
+Chinese (Traditional): 繁體中文文本，測試字型。
+Korean: 한국어 텍스트 렌더링 테스트
+Emoji: 😀 👍🏽 🎉 👨‍👩‍👧 🇲🇽 ✔ ● ★
+Arabic (RTL): مرحبا بالعالم، هذا نص عربي
+Hebrew (RTL): שלום עולם, זה טקסט בעברית
+Mixed bidi: abc שלום 123 def مرحبا 456 ghi
+Combining marks: é ä ñ (decomposed)
+Wide-char grid (the bars should line up if wide chars are exactly two columns):
+|漢字漢字|
+|abcdefgh|
+|ｱｲｳｴｵｶｷｸ|
+Tab:	after-a-tab

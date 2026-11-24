@@ -1,0 +1,53 @@
+# cargo-deny gate: GPLv3-compatible licenses (Q02), RustSec advisories, the strict-Rust rule
+# (Q19) and trusted sources. Run with `cargo deny check`.
+
+[graph]
+# Every platform Amate ships for (Q09); the macOS x86_64 half is part of the universal binary.
+targets = [
+  "x86_64-pc-windows-msvc",
+  "x86_64-unknown-linux-gnu",
+  "aarch64-apple-darwin",
+  "x86_64-apple-darwin",
+]
+# Dev-dependencies never reach the shipped binary.
+exclude-dev = true
+
+[advisories]
+yanked = "deny"
+ignore = []
+
+[licenses]
+# Compatible with GPL-3.0-or-later (FSF license list).
+allow = [
+  "MIT",
+  "Apache-2.0",
+  "Apache-2.0 WITH LLVM-exception",
+  "BSD-2-Clause",
+  "BSD-3-Clause",
+  "ISC",
+  "Zlib",
+  "Unicode-3.0",
+  "BSL-1.0",
+]
+confidence-threshold = 0.93
+private = { ignore = true }
+
+[bans]
+multiple-versions = "allow"
+wildcards = "deny"
+deny = [
+  # Q19: no C or C++ compiled into the binary. wayland-backend always declares cc, but only
+  # compiles C with its `log` feature, which is denied below.
+  { name = "cc", wrappers = ["wayland-backend"], reason = "Q19: no C compiled into the binary" },
+  { name = "cmake", reason = "Q19: no C or C++ compiled into the binary" },
+  { name = "bindgen", reason = "Q19: no C or C++ compiled into the binary" },
+]
+
+[[bans.features]]
+name = "wayland-backend"
+deny = ["log"]
+reason = "Q19: the only feature that makes wayland-backend compile C"
+
+[sources]
+unknown-registry = "deny"
+unknown-git = "deny"

@@ -1,0 +1,4 @@
+# Pinned so that new clippy lints never break CI unannounced; bump on purpose.
+[toolchain]
+channel = "1.100.0"
+components = ["rustfmt", "clippy"]
