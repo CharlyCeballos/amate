@@ -330,6 +330,10 @@ Implica:
 - Fuera: Scintilla, Lexilla, Tree-sitter, gtk4-rs, Qt, `mlua` y TLS con proveedores en C (`ring`,
   `aws-lc-rs`).
 - El CI falla si el árbol de dependencias del binario incluye `cc`, `cmake` o `bindgen`.
+- Excepción (2026-11-23): `cc` se permite solo como dependencia de compilación de
+  `wayland-backend`, que lo declara siempre pero solo compila C con su feature `log`; esa feature
+  queda prohibida. Sin la excepción, ningún toolkit con Wayland nativo pasa la regla. La aplican
+  `deny.toml` y el CI.
 - Las herramientas que no viajan en el binario (valgrind, libFuzzer) quedan fuera de la regla.
 
 Si cambias: vuelven a la comparación Tree-sitter, PCRE2 y gtk4-rs.

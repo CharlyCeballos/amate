@@ -12,9 +12,10 @@ de los códices ([Q01]). Los documentos de planeación están en español ([Q08]
 
 ## Estado
 
-Planeación: todavía no hay código ni binarios que descargar. Este repositorio va a ser el del
-código de Amate, y hoy solo tiene los documentos que lo preparan: el prompt operativo, las
-decisiones, el análisis de Notepad++, el cuestionario, la hoja de ruta y el plan de distribución.
+Hito 0, en curso: un workspace de Cargo con CI y una ventana vacía hecha con egui; todavía no hay
+binarios que descargar. Junto al código viven los documentos que lo preparan: el prompt operativo,
+las decisiones, el análisis de Notepad++, el cuestionario, la hoja de ruta y el plan de
+distribución.
 La carpeta `notepadrust` es solo un nombre de trabajo local ([Q01]).
 
 El contexto es fijo: una persona con experiencia sólida en Rust trabaja con un agente de código.
@@ -229,7 +230,7 @@ por su identificador, así: [Q09].
 
 | Hito | Qué entrega |
 | --- | --- |
-| Hito 0 — Cimientos y validación medida | Un workspace de Cargo que compila en Windows, Linux y macOS en CI: `fmt`, `clippy -D warnings`, pruebas, `cargo-deny` y la regla de [Q19] (el CI falla si el árbol de dependencias del binario incluye `cc`, `cmake` o `bindgen`). Una ventana vacía empaquetada de forma basta en cada sistema, todavía sin ser el MSI, el DMG ni el `.deb` finales. Spikes del toolkit en ramas `spike/`, que se borran, para medir IME, lector de pantalla, consumo en reposo, latencia de tecla, costo de empaquetado y el build universal de macOS; lo que queda es un ADR en `docs/adr/` con la decisión GO/PIVOT ([Q20], [Q24]). Con el primer código llegan el CI y `SECURITY.md` ([Q15]), y se fija con mediciones el umbral para abrir un archivo de 10 MB ([Q25]). Salida: CI verde en los tres sistemas, ADR con números y un artefacto basto descargable desde el CI. |
+| Hito 0 — Cimientos y validación medida | Un workspace de Cargo que compila en Windows, Linux y macOS en CI: `fmt`, `clippy -D warnings`, pruebas, `cargo-deny` y la regla de [Q19] (el CI falla si el árbol de dependencias del binario incluye `cc`, `cmake` o `bindgen`, salvo el caso de `wayland-backend` que registra [Q19]). Una ventana vacía empaquetada de forma basta en cada sistema, todavía sin ser el MSI, el DMG ni el `.deb` finales. Spikes del toolkit en ramas `spike/`, que se borran, para medir IME, lector de pantalla, consumo en reposo, latencia de tecla, costo de empaquetado y el build universal de macOS; lo que queda es un ADR en `docs/adr/` con la decisión GO/PIVOT ([Q20], [Q24]). Con el primer código llegan el CI y `SECURITY.md` ([Q15]), y se fija con mediciones el umbral para abrir un archivo de 10 MB ([Q25]). Salida: CI verde en los tres sistemas, ADR con números y un artefacto basto descargable desde el CI. |
 | Hito 1 — Primera versión usable (0.1.0, sin anuncio, [Q27]) | La «Base del hito 1» de PROMPT.md más los añadidos de [Q04]: coincidencia de paréntesis, espacios en blanco visibles, tema claro u oscuro del sistema, DPI alto, rutas de configuración resueltas al ejecutar con modo portable (archivo marcador junto al ejecutable), y abrir y guardar en ANSI (Windows-1252 e ISO-8859-1). También: teclado completo ([Q20]), textos fuera del código ([Q07]), los 13 lenguajes de [Q26], el documento en un rope ([Q11]), la capa de comandos serializable ([Q06]), un modelo de documento que ya admite varias vistas del mismo búfer (la vista dividida llega en el hito 2), el mapeo de atajos de macOS ([Q23]) y los paquetes de [Q09] generados en CI, sin firma ([Q10]). Los presupuestos de [Q25] se miden en CI desde aquí. La salida incluye el uso diario: el mantenedor usa Amate como editor principal para las tareas básicas durante dos semanas. |
 | Hito 2 — Flujo diario | Todo lo de `diario` que no entró en el hito 1, con los 32 lenguajes de [Q26], y buscar en archivos, plegado y texto bidireccional ([Q03], [Q04]). Salida: un usuario habitual de Notepad++ trabaja un día completo sin volver atrás, comprobado con usuarios reales. |
 | Hito 3 — Manual y preferencias | Preferencias y temas editables, manual de usuario en español e inglés ([Q08]), la interfaz completa en los dos idiomas ([Q07]) y, por escrito, el costo estimado de importar la configuración de Notepad++, como trabajo no incluido ([Q05]). |
@@ -262,8 +263,8 @@ que toca, criterio de salida, riesgos y mitigación) está en
 | [LICENSE](LICENSE) | El texto de la licencia GPL-3.0. |
 | [.gitattributes](.gitattributes) | LF en todo el repositorio, con CRLF solo para `*.bat` y `*.cmd` ([Q30]). |
 
-Todavía no existen `docs/05-plan-ejecutable.md`, que crea la corrida del prompt, ni `docs/adr/`,
-que nace en el hito 0 con los primeros ADR.
+Todavía no existe `docs/05-plan-ejecutable.md`, que crea la corrida del prompt. Los ADR viven en
+`docs/adr/`, empezando por el del toolkit de la interfaz ([0001](docs/adr/0001-toolkit.md)).
 
 ## Licencia y marca
 

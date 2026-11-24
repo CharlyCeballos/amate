@@ -1,0 +1,28 @@
+[package]
+name = "amate"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[dependencies]
+# glow, not wgpu: on Windows the empty window measured 86 MB private memory and a 6.3 MB
+# binary with glow, against 525 MB and 13.7 MB with wgpu (Q25 budget: under 100 MB).
+# No default_fonts: they bundle OFL-1.1 and Ubuntu-font-1.0 fonts; Amate uses system fonts.
+eframe = { version = "0.37", default-features = false, features = [
+  "accesskit",
+  "clipboard",
+  "system_fonts",
+  "wayland",
+  "x11",
+  "glow",
+] }
+# Only to keep the winit features that eframe's defaults enable: load libwayland at
+# runtime (no build-time link) and draw window decorations on GNOME Wayland.
+winit = { version = "0.30.13", default-features = false, features = [
+  "wayland-dlopen",
+  "wayland-csd-adwaita",
+] }
+
+[lints]
+workspace = true

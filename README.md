@@ -14,9 +14,10 @@ milestones are *hitos* (Hito 0 to Hito 5, plus Hito 4b), and the parity levels a
 
 ## Status
 
-Planning: there is no code and nothing to download yet. This repository will hold Amate's code,
-and today it only contains the documents that prepare it: the operative prompt, the decisions, the
-analysis of Notepad++, the questionnaire, the roadmap and the distribution plan. The `notepadrust`
+Hito 0, in progress: a Cargo workspace with CI and an empty window built with egui; there is
+nothing to download yet. Next to the code live the documents that prepare it: the operative
+prompt, the decisions, the analysis of Notepad++, the questionnaire, the roadmap and the
+distribution plan. The `notepadrust`
 folder name is only a local working name ([Q01]).
 
 The context is fixed: one person with solid Rust experience works with a coding agent. The
@@ -230,7 +231,7 @@ documents cite them by their identifier, like this: [Q09].
 
 | Hito | What it delivers |
 | --- | --- |
-| Hito 0 — Foundations and measured validation | A Cargo workspace that compiles on Windows, Linux and macOS in CI: `fmt`, `clippy -D warnings`, tests, `cargo-deny` and the rule of [Q19] (CI fails if the binary's dependency tree includes `cc`, `cmake` or `bindgen`). An empty window packaged roughly on each system, not yet the final MSI, DMG or `.deb`. Toolkit spikes on `spike/` branches, which get deleted, to measure IME, screen reader, idle consumption, keystroke latency, packaging cost and the macOS universal build; what remains is an ADR in `docs/adr/` with the GO/PIVOT decision ([Q20], [Q24]). With the first code come CI and `SECURITY.md` ([Q15]), and the threshold for opening a 10 MB file is set with measurements ([Q25]). Exit: green CI on the three systems, ADRs with numbers and a rough artifact downloadable from CI. |
+| Hito 0 — Foundations and measured validation | A Cargo workspace that compiles on Windows, Linux and macOS in CI: `fmt`, `clippy -D warnings`, tests, `cargo-deny` and the rule of [Q19] (CI fails if the binary's dependency tree includes `cc`, `cmake` or `bindgen`, except the `wayland-backend` case that [Q19] records). An empty window packaged roughly on each system, not yet the final MSI, DMG or `.deb`. Toolkit spikes on `spike/` branches, which get deleted, to measure IME, screen reader, idle consumption, keystroke latency, packaging cost and the macOS universal build; what remains is an ADR in `docs/adr/` with the GO/PIVOT decision ([Q20], [Q24]). With the first code come CI and `SECURITY.md` ([Q15]), and the threshold for opening a 10 MB file is set with measurements ([Q25]). Exit: green CI on the three systems, ADRs with numbers and a rough artifact downloadable from CI. |
 | Hito 1 — First usable version (0.1.0, no announcement, [Q27]) | The “Base del hito 1” (Hito 1 baseline) of PROMPT.md plus the [Q04] additions: bracket matching, visible whitespace, the system's light or dark theme, HiDPI, configuration paths resolved at runtime with portable mode (a marker file next to the executable), and opening and saving ANSI (Windows-1252 and ISO-8859-1). Also: full keyboard use ([Q20]), strings outside the code ([Q07]), the 13 languages of [Q26], the document in a rope ([Q11]), the serializable command layer ([Q06]), a document model that already allows several views of the same buffer (split view arrives in Hito 2), the macOS shortcut mapping ([Q23]) and the [Q09] packages built in CI, unsigned ([Q10]). The [Q25] budgets are measured in CI from here on. The exit includes daily use: the maintainer uses Amate as the main editor for basic tasks for two weeks. |
 | Hito 2 — Daily workflow | Everything in `diario` that did not go into Hito 1, with the 32 languages of [Q26], and find in files, folding and bidirectional text ([Q03], [Q04]). Exit: a regular Notepad++ user works a full day without going back, checked with real users. |
 | Hito 3 — Manual and preferences | Editable preferences and themes, a user manual in Spanish and English ([Q08]), the complete interface in both languages ([Q07]) and, in writing, the estimated cost of importing Notepad++ configuration, as excluded work ([Q05]). |
@@ -263,8 +264,8 @@ crates it touches, exit criterion, risks and mitigation) is in
 | [LICENSE](LICENSE) | The text of the GPL-3.0 license. |
 | [.gitattributes](.gitattributes) | LF across the repository, with CRLF only for `*.bat` and `*.cmd` ([Q30]). |
 
-`docs/05-plan-ejecutable.md`, which the prompt run creates, and `docs/adr/`, which starts in Hito 0
-with the first ADRs, do not exist yet.
+`docs/05-plan-ejecutable.md`, which the prompt run creates, does not exist yet. The ADRs live in
+`docs/adr/`, starting with the interface toolkit ([0001](docs/adr/0001-toolkit.md)).
 
 ## License and trademark
 
